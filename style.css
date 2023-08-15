@@ -16,7 +16,6 @@
    height: 500px;
     width: 500px;
     margin: auto;
-    border: 1px solid black;
 }
 
 .controls {
@@ -35,5 +34,5 @@
     border: 1px solid black;
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 166px;
+    flex-basis: 125px;
 }
