@@ -1,9 +1,9 @@
 const container = document.querySelector(".container");
 const title = document.querySelector(".title");
 const sliderText = document.querySelector("#sliderLabel");
-
-let divCount = 30;
-
+let color = "#ff0000";
+let divCount = 24;
+sliderText.textContent = `${divCount} * ${divCount}`;
 const removeGrids = (divCount) => {
   for (let i = 0; i < divCount * divCount; i++) {
     if (container.firstElementChild) {
@@ -27,6 +27,7 @@ const createGrid = (divCount) => {
   let newDiv;
   for (let i = 0; i < divCount * divCount; i++) {
     newDiv = document.createElement("div");
+    newDiv.classList.add('newDiv');
     container.appendChild(newDiv);
   }
   const allContainer = container.querySelectorAll("div");
@@ -35,3 +36,29 @@ const createGrid = (divCount) => {
   });
 };
 createGrid(divCount);
+
+//Drawing
+
+const containerDivs = container.children;
+for (const child of containerDivs) {
+  const paintGrid = (e) => {
+    if (e.buttons == 1) {
+        if(e.target.classList=='newDiv'){
+      let elem = e.target;
+      elem.style.backgroundColor = color;}
+    }
+  };
+
+  child.addEventListener("mousedown", (e) => {
+    paintGrid(e);
+    console.log(e.buttons);
+    if (e.buttons == 1) {
+      window.addEventListener("mouseover", (e) => {
+        if (e.buttons ==1){
+        console.log(e.target);
+        paintGrid(e);
+        }
+      });
+    }
+  });
+}
