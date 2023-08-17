@@ -1,8 +1,26 @@
 const container = document.querySelector(".container");
 const title = document.querySelector(".title");
 const sliderText = document.querySelector("#sliderLabel");
-let color = "#ff0000";
-let divCount = 24;
+const erase = document.querySelector('.erase');
+const reset = document.querySelector('.reset');
+const color = document.querySelector('#color');
+
+let selectedColor = "#ff0000";
+let divCount = 18;
+
+color.addEventListener('input', ()=>{
+    selectedColor = color.value;
+})
+
+erase.addEventListener('click', ()=>{
+    selectedColor = '#ffffff';
+})
+
+reset.addEventListener('click', ()=> {
+    removeGrids(divCount);
+    addGrids(divCount);
+})
+
 sliderText.textContent = `${divCount} * ${divCount}`;
 const removeGrids = (divCount) => {
   for (let i = 0; i < divCount * divCount; i++) {
@@ -45,7 +63,7 @@ for (const child of containerDivs) {
     if (e.buttons == 1) {
         if(e.target.classList=='newDiv'){
       let elem = e.target;
-      elem.style.backgroundColor = color;}
+      elem.style.backgroundColor = selectedColor;}
     }
   };
 
