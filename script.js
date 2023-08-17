@@ -1,11 +1,11 @@
 const container = document.querySelector(".container");
 const title = document.querySelector(".title");
-const slider = document.querySelector("#slider");
+const sliderText = document.querySelector("#sliderLabel");
 
 let divCount = 30;
 
 const removeGrids = (divCount) => {
-  for (let i = 0; i < divCount*divCount; i++) {
+  for (let i = 0; i < divCount * divCount; i++) {
     if (container.firstElementChild) {
       container.firstElementChild.remove();
     }
@@ -13,6 +13,7 @@ const removeGrids = (divCount) => {
 };
 
 const addGrids = (divCount) => {
+  sliderText.textContent = `${divCount} * ${divCount}`;
   createGrid(divCount);
 };
 
@@ -34,4 +35,3 @@ const createGrid = (divCount) => {
   });
 };
 createGrid(divCount);
-
