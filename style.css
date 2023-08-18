@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: rgb(201, 210, 218);
+}
+
 .title, .subtitle {
     text-align: center;
     font-family: 'Sriracha', cursive;
@@ -18,6 +22,10 @@
     margin: auto;
 }
 
+.newDiv{
+    background-color: white;
+}
+
 .controls {
     margin: 2em;
     display: flex;
@@ -31,8 +39,12 @@
 }
 
 .container > *{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 17.8px;
+}
+
+button{
+    background-color: rgb(222, 231, 232);
 }
